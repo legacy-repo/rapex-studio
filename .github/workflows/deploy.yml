@@ -14,14 +14,16 @@ jobs:
       - name: install
         run: yarn
 
-      - name: plugins
-        run: yarn add umi-plugin-pro
+      # - name: plugins
+      #   run: yarn add umi-plugin-pro
 
-      - name: fetch-blocks
-        run: yarn run pro fetch-blocks
+      # - name: fetch-blocks
+      #   run: yarn run pro fetch-blocks
 
       - name: site
         run: npm run build
+        env:
+          NODE_ENV: production
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
