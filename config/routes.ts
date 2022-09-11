@@ -90,13 +90,13 @@
     name: 'datasets',
     icon: 'table',
     path: '/datasets',
-    component: './TableList',
+    component: './DataSet',
   },
   {
     name: 'about',
     icon: 'question-circle',
     path: '/about',
-    component: './TableList',
+    component: './Welcome',
   },
   {
     path: '/',

@@ -15,7 +15,7 @@ export default {
   'app.examples': '示例',
   'app.openapi': 'OpenAPI文档',
   'app.components': '业务组件文档',
-  'app.copyright.produced': '蚂蚁集团体验技术部出品',
+  'app.copyright.produced': '智汇医圈联盟Rapex团队出品',
   'app.preview.down.block': '下载此页面到本地项目',
   'app.welcome.link.fetch-blocks': '获取全部区块',
   'app.welcome.link.block-list': '基于 block 开发，快速构建标准页面',

@@ -8,7 +8,7 @@ import { history, Link } from 'umi';
 import { useIntl } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV !== 'development';
 const loginPath = '/user/login';
 
 const ExampleLink: React.FC = () => {

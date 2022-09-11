@@ -4,17 +4,17 @@ import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-desi
 import {
   FooterToolbar,
   ModalForm,
-  PageContainer,
   ProDescriptions,
   ProFormText,
   ProFormTextArea,
   ProTable,
 } from '@ant-design/pro-components';
-import { Button, Drawer, Input, message } from 'antd';
+import { Button, Drawer, Input, message, Row } from 'antd';
 import React, { useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'umi';
 import type { FormValueType } from './components/UpdateForm';
 import UpdateForm from './components/UpdateForm';
+import './index.less';
 
 /**
  * @en-US Add node
@@ -83,7 +83,7 @@ const handleRemove = async (selectedRows: API.RuleListItem[]) => {
   }
 };
 
-const TableList: React.FC = () => {
+const DataSet: React.FC = () => {
   /**
    * @en-US Pop-up window of new window
    * @zh-CN 新建窗口的弹窗
@@ -242,7 +242,7 @@ const TableList: React.FC = () => {
   ];
 
   return (
-    <PageContainer>
+    <Row className="dataset-container">
       <ProTable<API.RuleListItem, API.PageParams>
         headerTitle={intl.formatMessage({
           id: 'pages.searchTable.title',
@@ -390,8 +390,8 @@ const TableList: React.FC = () => {
           />
         )}
       </Drawer>
-    </PageContainer>
+    </Row>
   );
 };
 
-export default TableList;
+export default DataSet;
