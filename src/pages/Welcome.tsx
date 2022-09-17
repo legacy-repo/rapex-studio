@@ -1,22 +1,12 @@
-import { Alert, Card, Typography } from 'antd';
+import { Card } from 'antd';
 import React from 'react';
-import { FormattedMessage, useIntl } from 'umi';
-import styles from './Welcome.less';
-
-const CodePreview: React.FC = ({ children }) => (
-  <pre className={styles.pre}>
-    <code>
-      <Typography.Text copyable>{children}</Typography.Text>
-    </code>
-  </pre>
-);
+import GeneList from './GeneList';
+import './Welcome.less';
 
 const Welcome: React.FC = () => {
-  const intl = useIntl();
-
   return (
-    <Card className={styles.welcomeContainer}>
-
+    <Card className="welcome">
+      <GeneList></GeneList>
     </Card>
   );
 };

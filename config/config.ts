@@ -1,6 +1,6 @@
 // https://umijs.org/config/
-import { defineConfig } from 'umi';
 import { join } from 'path';
+import { defineConfig } from 'umi';
 
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
@@ -20,7 +20,7 @@ export default defineConfig({
     locale: true,
     siderWidth: 280,
     menu: {
-      defaultOpenAll: true
+      defaultOpenAll: true,
     },
     ...defaultSettings,
   },
@@ -53,7 +53,8 @@ export default defineConfig({
   esbuild: {},
   title: false,
   ignoreMomentLocale: true,
-  proxy: proxy[REACT_APP_ENV || 'dev'],
+  // proxy: proxy[REACT_APP_ENV || 'dev'],
+  proxy: proxy['dev'],
   manifest: {
     basePath: '/',
   },
@@ -69,7 +70,7 @@ export default defineConfig({
     },
     {
       requestLibPath: "import { request } from 'umi'",
-      schemaPath: 'https://gw.alipayobjects.com/os/antfincdn/CA1dOm%2631B/openapi.json',
+      schemaPath: 'http://localhost:3002/api/swagger.json',
       projectName: 'swagger',
     },
   ],

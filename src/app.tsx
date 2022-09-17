@@ -1,14 +1,13 @@
 import Footer from '@/components/Footer';
 import RightContent from '@/components/RightContent';
-import { BookOutlined, LinkOutlined, BulbOutlined } from '@ant-design/icons';
+import { BookOutlined, BulbOutlined, LinkOutlined } from '@ant-design/icons';
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
 import { PageLoading, SettingDrawer } from '@ant-design/pro-components';
 import type { RunTimeLayoutConfig } from 'umi';
-import { history, Link } from 'umi';
-import { useIntl } from 'umi';
+import { history, Link, useIntl } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 
-const isDev = process.env.NODE_ENV !== 'development';
+const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
 
 const ExampleLink: React.FC = () => {
@@ -17,16 +16,14 @@ const ExampleLink: React.FC = () => {
     <Link to="/~docs" key="docs">
       <BookOutlined />
       <span>
-        {
-          intl.formatMessage({
-            id: 'app.examples',
-            defaultMessage: 'Examples',
-          })
-        }
+        {intl.formatMessage({
+          id: 'app.examples',
+          defaultMessage: 'Examples',
+        })}
       </span>
     </Link>
-  )
-}
+  );
+};
 
 const DocLink: React.FC = () => {
   const intl = useIntl();
@@ -34,16 +31,14 @@ const DocLink: React.FC = () => {
     <Link key="openapi" to="/umi/plugin/openapi" target="_blank">
       <BulbOutlined />
       <span>
-        {
-          intl.formatMessage({
-            id: 'app.docs',
-            defaultMessage: 'Docs',
-          })
-        }
+        {intl.formatMessage({
+          id: 'app.docs',
+          defaultMessage: 'Docs',
+        })}
       </span>
     </Link>
-  )
-}
+  );
+};
 
 const OpenAPILink: React.FC = () => {
   const intl = useIntl();
@@ -51,16 +46,14 @@ const OpenAPILink: React.FC = () => {
     <Link key="openapi" to="/umi/plugin/openapi" target="_blank">
       <LinkOutlined />
       <span>
-        {
-          intl.formatMessage({
-            id: 'app.openapi',
-            defaultMessage: 'OpenAPI',
-          })
-        }
+        {intl.formatMessage({
+          id: 'app.openapi',
+          defaultMessage: 'OpenAPI',
+        })}
       </span>
     </Link>
-  )
-}
+  );
+};
 
 const ComponentLink: React.FC = () => {
   const intl = useIntl();
@@ -68,17 +61,14 @@ const ComponentLink: React.FC = () => {
     <Link to="/~docs" key="docs">
       <BookOutlined />
       <span>
-        {
-          intl.formatMessage({
-            id: 'app.components',
-            defaultMessage: 'Components',
-          })
-        }
+        {intl.formatMessage({
+          id: 'app.components',
+          defaultMessage: 'Components',
+        })}
       </span>
     </Link>
-  )
-}
-
+  );
+};
 
 /** 获取用户信息比较慢的时候会展示一个 loading */
 export const initialStateConfig = {
@@ -134,15 +124,14 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
       //   history.push(loginPath);
       // }
     },
-    links: isDev ? [
-      <DocLink></DocLink>,
-      <ExampleLink></ExampleLink>,
-      <OpenAPILink></OpenAPILink>,
-      <ComponentLink></ComponentLink>
-    ] : [
-      <DocLink></DocLink>,
-      <ExampleLink></ExampleLink>
-    ],
+    links: isDev
+      ? [
+          <DocLink></DocLink>,
+          <ExampleLink></ExampleLink>,
+          <OpenAPILink></OpenAPILink>,
+          <ComponentLink></ComponentLink>,
+        ]
+      : [<DocLink></DocLink>, <ExampleLink></ExampleLink>],
     menuHeaderRender: undefined,
     // 自定义 403 页面
     // unAccessible: <div>unAccessible</div>,
