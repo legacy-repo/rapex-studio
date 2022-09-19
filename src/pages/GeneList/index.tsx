@@ -5,6 +5,7 @@ import { Row } from 'antd';
 import type { SortOrder } from 'antd/es/table/interface';
 import React, { useRef } from 'react';
 import { FormattedMessage } from 'umi';
+import { makeQueryStr } from '../util';
 import './index.less';
 
 interface DataType {
@@ -38,7 +39,7 @@ const requestDEGs = async (
   return await getDegs({
     page: params.current,
     page_size: params.pageSize,
-    query_str: '{:select [:*] :from [:gut_000000_fpkm_ttest]}',
+    query_str: makeQueryStr('gut_000000_fpkm_ttest', params, sort, filter),
   })
     .then((response) => {
       return formatResponse(response);
@@ -116,6 +117,7 @@ const GeneList: React.FC = () => {
     {
       title: <FormattedMessage id="pages.GeneList.pAdj" defaultMessage="Adjusted Pvalue" />,
       align: 'center',
+      hideInSearch: true,
       dataIndex: 'padj',
       sorter: true,
       tip: 'Adjusted Pvalue.',
@@ -135,6 +137,7 @@ const GeneList: React.FC = () => {
     {
       title: <FormattedMessage id="pages.GeneList.pvalue" defaultMessage="Pvalue" />,
       align: 'center',
+      hideInSearch: true,
       dataIndex: 'pvalue',
       sorter: true,
       tip: 'A p-value is a statistical measurement used to validate a hypothesis against observed data.',
@@ -154,6 +157,7 @@ const GeneList: React.FC = () => {
     {
       title: <FormattedMessage id="pages.GeneList.logfc" defaultMessage="LogFC" />,
       align: 'center',
+      hideInSearch: true,
       dataIndex: 'logfc',
       sorter: true,
       tip: 'Log fold change = log(FC) Usually, the transformation is log at base 2, so the interpretation is straightforward: a log(FC) of 1 means twice as expressed.',

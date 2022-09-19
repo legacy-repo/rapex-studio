@@ -6,6 +6,7 @@ import type { SortOrder } from 'antd/es/table/interface';
 import map from 'lodash.map';
 import React, { useRef } from 'react';
 import { FormattedMessage } from 'umi';
+import { makeQueryStr } from '../util';
 import './index.less';
 
 type DataType = {
@@ -32,52 +33,13 @@ function formatResponse(response: RequestData<DataType>): Promise<Partial<Reques
   });
 }
 
-function makeQueryStr(
-  params: PageParams & DataType,
-  sort: Record<string, SortOrder>,
-  filter: Record<string, React.ReactText[] | null>,
-): string {
-  console.log('makeQueryStr filter: ', filter);
-  const query_str = ':select [:*] :from [:kegg_pathway]';
-  let sort_clause = '';
-  let query_clause = '';
-  if (sort) {
-    const key = Object.keys(sort)[0];
-    const value = Object.values(sort)[0];
-    if (key && value) {
-      if (value === 'ascend') {
-        sort_clause = `:order-by [:${key}]`;
-      } else {
-        sort_clause = `:order-by [[:${key} :desc]]`;
-      }
-    }
-  }
-
-  if (params) {
-    const subclauses = [];
-    for (const key of Object.keys(params)) {
-      if (['current', 'pageSize'].indexOf(key) < 0 && params[key].length > 0) {
-        subclauses.push(`[:like :${key} "%${params[key]}%"]`);
-      }
-    }
-
-    if (subclauses.length == 1) {
-      query_clause = `:where ${subclauses[0]}`;
-    } else if (subclauses.length > 1) {
-      query_clause = `:where [:and ${subclauses.join(' ')}]`;
-    }
-  }
-
-  return `{${query_str} ${sort_clause} ${query_clause}}`;
-}
-
 const requestPathways = async (
   params: PageParams & DataType,
   sort: Record<string, SortOrder>,
   filter: Record<string, React.ReactText[] | null>,
 ) => {
   console.log('requestPathways: ', params, sort, filter);
-  const query_str = makeQueryStr(params, sort, filter);
+  const query_str = makeQueryStr('kegg_pathway', params, sort, filter);
   return await getPathways({
     page: params.current,
     page_size: params.pageSize,
