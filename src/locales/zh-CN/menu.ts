@@ -11,6 +11,7 @@ export default {
   'menu.custom-analysis.multiple-genes-comparison': '多基因比较',
   'menu.custom-analysis.correlation-analysis': '关联分析',
   'menu.custom-analysis.similar-genes-detection': '相似基因分析',
+  'menu.kegg-pathways': 'KEGG通路',
   'menu.datasets': '数据集',
   'menu.about': '关于',
 

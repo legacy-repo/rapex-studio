@@ -4,10 +4,11 @@ import { BookOutlined, BulbOutlined, LinkOutlined } from '@ant-design/icons';
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
 import { PageLoading, SettingDrawer } from '@ant-design/pro-components';
 import type { RunTimeLayoutConfig } from 'umi';
-import { history, Link, useIntl } from 'umi';
+import { history, Link, RequestConfig, useIntl } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 
 const isDev = process.env.NODE_ENV === 'development';
+const apiPrefix = process.env.UMI_APP_API_PREFIX ? process.env.UMI_APP_API_PREFIX : '';
 const loginPath = '/user/login';
 
 const ExampleLink: React.FC = () => {
@@ -68,6 +69,18 @@ const ComponentLink: React.FC = () => {
       </span>
     </Link>
   );
+};
+
+console.log('apiPrefix', process.env);
+
+export const request: RequestConfig = {
+  timeout: 30000,
+  // More details on ./config/proxy.ts or ./config/config.cloud.ts
+  prefix: apiPrefix,
+  errorConfig: {},
+  middlewares: [],
+  requestInterceptors: [],
+  responseInterceptors: [],
 };
 
 /** 获取用户信息比较慢的时候会展示一个 loading */

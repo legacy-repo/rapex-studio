@@ -12,6 +12,7 @@ export default {
   'menu.custom-analysis.correlation-analysis': 'Correlation Analysis',
   'menu.custom-analysis.similar-genes-detection': 'Similar Genes Detection',
   'menu.datasets': 'Datasets',
+  'menu.kegg-pathways': 'KEGG Pathways',
   'menu.about': 'About',
 
   'menu.more-blocks': 'More Blocks',

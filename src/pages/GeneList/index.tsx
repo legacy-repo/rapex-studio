@@ -1,4 +1,4 @@
-import { getOmicsData } from '@/services/swagger/OmicsData';
+import { getDegs } from '@/services/swagger/OmicsData';
 import type { ActionType, ProColumns, RequestData } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Row } from 'antd';
@@ -35,11 +35,10 @@ const requestDEGs = async (
   filter: Record<string, React.ReactText[] | null>,
 ) => {
   console.log('requestDEGs: ', sort, filter);
-  return await getOmicsData({
+  return await getDegs({
     page: params.current,
     page_size: params.pageSize,
     query_str: '{:select [:*] :from [:gut_000000_fpkm_ttest]}',
-    dbname: 'rapex_degs',
   })
     .then((response) => {
       return formatResponse(response);

@@ -6,7 +6,7 @@ import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 import routes from './routes';
 
-const { REACT_APP_ENV } = process.env;
+const apiPrefix = process.env.UMI_APP_API_PREFIX ? process.env.UMI_APP_API_PREFIX : '';
 
 export default defineConfig({
   hash: true,
@@ -70,7 +70,7 @@ export default defineConfig({
     },
     {
       requestLibPath: "import { request } from 'umi'",
-      schemaPath: 'http://localhost:3002/api/swagger.json',
+      schemaPath: `${apiPrefix}/api/swagger.json`,
       projectName: 'swagger',
     },
   ],

@@ -29,13 +29,13 @@
     path: '/single-gene',
     name: 'single-gene',
     icon: 'sliders',
-    component: './Welcome'
+    component: './Welcome',
   },
   {
     path: '/multiple-genes',
     name: 'multiple-genes',
     icon: 'dot-chart',
-    component: './Welcome'
+    component: './Welcome',
   },
   {
     path: '/custom-analysis',
@@ -85,6 +85,12 @@
         component: './Welcome',
       },
     ],
+  },
+  {
+    name: 'kegg-pathways',
+    icon: 'partition',
+    path: '/kegg-pathways',
+    component: './KEGGPathway',
   },
   {
     name: 'datasets',

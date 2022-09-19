@@ -1,4 +1,17 @@
 export default {
+  'pages.KEGGPathway.pathwayId': 'Pathway ID',
+  'pages.KEGGPathway.pathwayName': 'Pathway Name',
+  'pages.KEGGPathway.geneSymbol': 'Gene Symbol',
+  'pages.KEGGPathway.ensemblId': 'Ensembl ID',
+  'pages.KEGGPathway.entrezId': 'Entrez ID',
+  'pages.GeneList.ensemblId': 'Ensembl ID',
+  'pages.GeneList.entrezId': 'Entrez ID',
+  'pages.GeneList.geneSymbol': 'Gene Symbol',
+  'pages.GeneList.pAdj': 'Adjusted Pvalue',
+  'pages.GeneList.pvalue': 'Pvalue',
+  'pages.GeneList.logfc': 'logFC',
+  'pages.GeneList.direction': 'direction',
+
   'pages.layouts.userLayout.title':
     'Ant Design is the most influential web design specification in Xihu district',
   'pages.login.accountLogin.tab': 'Account Login',

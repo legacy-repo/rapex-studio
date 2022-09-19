@@ -1,4 +1,17 @@
 export default {
+  'pages.KEGGPathway.pathwayId': '通路ID',
+  'pages.KEGGPathway.pathwayName': '通路名称',
+  'pages.KEGGPathway.geneSymbol': '基因名',
+  'pages.KEGGPathway.ensemblId': 'Ensembl ID',
+  'pages.KEGGPathway.entrezId': 'Entrez ID',
+  'pages.GeneList.ensemblId': 'Ensembl ID',
+  'pages.GeneList.entrezId': 'Entrez ID',
+  'pages.GeneList.geneSymbol': '基因名',
+  'pages.GeneList.pAdj': '校正后P值',
+  'pages.GeneList.pvalue': 'P值',
+  'pages.GeneList.logfc': 'logFC',
+  'pages.GeneList.direction': '上下调',
+
   'pages.layouts.userLayout.title': 'Ant Design 是西湖区最具影响力的 Web 设计规范',
   'pages.login.accountLogin.tab': '账户密码登录',
   'pages.login.accountLogin.errorMessage': '错误的用户名和密码(admin/ant.design)',
