@@ -1,0 +1,1 @@
+(self.webpackChunkant_design_pro=self.webpackChunkant_design_pro||[]).push([[344],{11913:function(d,_,n){"use strict";n.r(_);var r=n(58024),a=n(91894),l=n(67294),t=n(25377),E=n(85893),s=function(){var M=(0,t.YB)();return(0,E.jsx)(a.Z,{className:"knowledge-graph-container"})};_.default=s}}]);
